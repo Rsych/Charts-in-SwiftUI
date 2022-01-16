@@ -31,6 +31,14 @@ struct PieSegment: Shape, Identifiable {
     var startAngle: Double
     var amount: Double
     
+    var animatableData: AnimatablePair<Double, Double> {
+        get { AnimatablePair(startAngle, amount) }
+        set {
+            startAngle = newValue.first
+            amount = newValue.second
+        }
+    }
+    
     func path(in rect: CGRect) -> Path {
         let radius = min(rect.width, rect.height) / 2
         let center = CGPoint(x: rect.width / 2, y: rect.height / 2)
@@ -72,9 +80,29 @@ struct PieChart: View {
 }
 
 struct ContentView: View {
+    @State private var redAmount = Double.random(in: 10...100)
+    @State private var yellowAmount = Double.random(in: 10...100)
+    @State private var greenAmount = Double.random(in: 10...100)
+    @State private var blueAmount = Double.random(in: 10...100)
+    
+    var data: [DataPoint] {
+        [
+        DataPoint(id: 1, value: redAmount, color: .red),
+        DataPoint(id: 2, value: yellowAmount, color: .yellow),
+        DataPoint(id: 3, value: greenAmount, color: .green),
+        DataPoint(id: 4, value: blueAmount, color: .blue)
+        ]
+    }
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        PieChart(dataPoints: data)
+            .onTapGesture {
+                withAnimation {
+                    redAmount = Double.random(in: 10...100)
+                    yellowAmount = Double.random(in: 10...100)
+                    greenAmount = Double.random(in: 10...100)
+                    blueAmount = Double.random(in: 10...100)
+                }
+            }
     }
 }
 
