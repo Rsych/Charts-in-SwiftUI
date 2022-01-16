@@ -26,6 +26,11 @@ struct DataPoint: Identifiable {
 }
 
 struct PieSegment: Shape, Identifiable {
+    let data: DataPoint
+    var id: Int { data.id }
+    var startAngle: Double
+    var amount: Double
+    
     func path(in rect: CGRect) -> Path {
         let radius = min(rect.width, rect.height) / 2
         let center = CGPoint(x: rect.width / 2, y: rect.height / 2)
@@ -36,11 +41,34 @@ struct PieSegment: Shape, Identifiable {
         
         return path
     }
+}
+
+struct PieChart: View {
+    let pieSegment: [PieSegment]
     
-    let data: DataPoint
-    var id: Int { data.id }
-    var startAngle: Double
-    var amount: Double
+    init(dataPoints: [DataPoint]) {
+        var segments = [PieSegment]()
+        let total = dataPoints.reduce(0) { $0 + $1.value }
+        var startAngle = -Double.pi / 2
+        
+        for data in dataPoints {
+            let amount = .pi * 2 * (data.value / total)
+            let segment = PieSegment(data: data, startAngle: startAngle, amount: amount)
+            segments.append(segment)
+            startAngle += amount
+        }
+        
+        pieSegment = segments
+    }
+    
+    var body: some View {
+        ZStack {
+            ForEach(pieSegment) { segment in
+                segment
+                    .fill(segment.data.color)
+            }
+        }
+    }
 }
 
 struct ContentView: View {
