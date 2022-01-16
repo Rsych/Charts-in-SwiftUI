@@ -6,11 +6,34 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		711DE51227944C8900B56DC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 711DE4FD27944C8800B56DC8;
+			remoteInfo = PieCharts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PieCharts.xcodeproj; path = PieCharts/PieCharts.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		711DE4CC27944BF100B56DC8 = {
 			isa = PBXGroup;
 			children = (
+				711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */,
 			);
+			sourceTree = "<group>";
+		};
+		711DE50F27944C8800B56DC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				711DE51327944C8900B56DC8 /* PieCharts.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -32,11 +55,27 @@
 			);
 			mainGroup = 711DE4CC27944BF100B56DC8;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 711DE50F27944C8800B56DC8 /* Products */;
+					ProjectRef = 711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		711DE51327944C8900B56DC8 /* PieCharts.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PieCharts.app;
+			remoteRef = 711DE51227944C8900B56DC8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin XCBuildConfiguration section */
 		711DE4D127944BF100B56DC8 /* Debug */ = {
