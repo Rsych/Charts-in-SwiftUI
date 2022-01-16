@@ -53,8 +53,11 @@ struct PieSegment: Shape, Identifiable {
 
 struct PieChart: View {
     let pieSegment: [PieSegment]
+    let strokeWidth: Double?
     
-    init(dataPoints: [DataPoint]) {
+    init(dataPoints: [DataPoint], strokeWidth: Double? = nil) {
+        self.strokeWidth = strokeWidth
+        
         var segments = [PieSegment]()
         let total = dataPoints.reduce(0) { $0 + $1.value }
         var startAngle = -Double.pi / 2
@@ -69,6 +72,14 @@ struct PieChart: View {
         pieSegment = segments
     }
     
+    @ViewBuilder var mask: some View {
+        if let strokeWidth = strokeWidth {
+            Circle().strokeBorder(Color.white, lineWidth: CGFloat(strokeWidth))
+        } else {
+            Circle()
+        }
+    }
+    
     var body: some View {
         ZStack {
             ForEach(pieSegment) { segment in
@@ -76,6 +87,7 @@ struct PieChart: View {
                     .fill(segment.data.color)
             }
         }
+        .mask(mask)
     }
 }
 
@@ -94,7 +106,7 @@ struct ContentView: View {
         ]
     }
     var body: some View {
-        PieChart(dataPoints: data)
+        PieChart(dataPoints: data, strokeWidth: 50)
             .onTapGesture {
                 withAnimation {
                     redAmount = Double.random(in: 10...100)
