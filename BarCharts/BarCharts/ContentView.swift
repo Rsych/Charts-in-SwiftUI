@@ -84,29 +84,28 @@ struct BarChart: View {
                     Spacer()
                 }
             }
-        HStack {
-            VStack {
-                ForEach((1...10).reversed(), id: \.self) { i in
-                    Text(String(Int(maxValue / 10 * Double(i))))
-                        .padding(.horizontal)
-                        .animation(nil)
-                    
-                    Spacer()
-                }
-            }
-            
-            ForEach(dataPoints) { data in
+            HStack {
                 VStack {
-                    Rectangle()
-                        .fill(data.color)
-                        .scaleEffect(y: CGFloat(data.value / maxValue), anchor: .bottom)
-//                        .background(Color.orange)
-                    
-                    Text(data.title)
-                        .bold()
-                } //: VStack
-            }
-        } //: HStack
+                    ForEach((1...10).reversed(), id: \.self) { i in
+                        Text(String(Int(maxValue / 10 * Double(i))))
+                            .padding(.horizontal)
+                            .animation(nil)
+                        Spacer()
+                    }
+                }
+                
+                ForEach(dataPoints) { data in
+                    VStack {
+                        Rectangle()
+                            .fill(data.color)
+                            .scaleEffect(y: CGFloat(data.value / maxValue), anchor: .bottom)
+                        //                        .background(Color.orange)
+                        
+                        Text(data.title)
+                            .bold()
+                    } //: VStack
+                }
+            } //: HStack
         } //: ZStack
     }
     
