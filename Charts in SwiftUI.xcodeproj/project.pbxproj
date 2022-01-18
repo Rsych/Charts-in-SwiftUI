@@ -21,17 +21,26 @@
 			remoteGlobalIDString = 711DE51E2795B10300B56DC8;
 			remoteInfo = BarCharts;
 		};
+		711DE5552795FD7800B56DC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 711DE5512795FD7800B56DC8 /* LineCharts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 711DE5402795FD7700B56DC8;
+			remoteInfo = LineCharts;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PieCharts.xcodeproj; path = PieCharts/PieCharts.xcodeproj; sourceTree = "<group>"; };
 		711DE52F2795B10400B56DC8 /* BarCharts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BarCharts.xcodeproj; path = BarCharts/BarCharts.xcodeproj; sourceTree = "<group>"; };
+		711DE5512795FD7800B56DC8 /* LineCharts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LineCharts.xcodeproj; path = LineCharts/LineCharts.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		711DE4CC27944BF100B56DC8 = {
 			isa = PBXGroup;
 			children = (
+				711DE5512795FD7800B56DC8 /* LineCharts.xcodeproj */,
 				711DE52F2795B10400B56DC8 /* BarCharts.xcodeproj */,
 				711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */,
 			);
@@ -49,6 +58,14 @@
 			isa = PBXGroup;
 			children = (
 				711DE5342795B10400B56DC8 /* BarCharts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		711DE5522795FD7800B56DC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				711DE5562795FD7800B56DC8 /* LineCharts.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +95,10 @@
 					ProjectRef = 711DE52F2795B10400B56DC8 /* BarCharts.xcodeproj */;
 				},
 				{
+					ProductGroup = 711DE5522795FD7800B56DC8 /* Products */;
+					ProjectRef = 711DE5512795FD7800B56DC8 /* LineCharts.xcodeproj */;
+				},
+				{
 					ProductGroup = 711DE50F27944C8800B56DC8 /* Products */;
 					ProjectRef = 711DE50E27944C8800B56DC8 /* PieCharts.xcodeproj */;
 				},
@@ -101,6 +122,13 @@
 			fileType = wrapper.application;
 			path = BarCharts.app;
 			remoteRef = 711DE5332795B10400B56DC8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		711DE5562795FD7800B56DC8 /* LineCharts.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = LineCharts.app;
+			remoteRef = 711DE5552795FD7800B56DC8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
